@@ -53,4 +53,15 @@ Process of Creating the script
     In the test case json, we need to consider at least two battery types, so more than two can also be considered
     Keeping Max and Min limit for According to Battery Type, currently considering only Temperature
 
-2. 
+2. In the next Step, we are going to print out report in this following
+    If we select one of the test case, and in of the battery type is selected, it is going to print out stream lenght (50 now) output one by one in console
+    eg : Sender Battery Type, Battery Index, Temperature Type, Temperature Detected
+         Sender One- B1 - Li-ion, Celcius, 50 | 
+         Sender One- B2 - Li-ion, Celcius, 37 | 
+         Sender Two- B3 - Li-ion, Celcius, 56 | 
+         ....
+         Sender Two- B48 - Li-ion, Celcius, 0 | 
+         Sender One- B49 - Li-ion, Celcius, 89 | 
+         Sender Two- B50 - Li-ion, Celcius, 100 |
+    
+    So Using the TDD approach, as we already have the test case ready, we are going to write a test call function and make it fail
