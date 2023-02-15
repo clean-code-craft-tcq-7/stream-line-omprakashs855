@@ -1,0 +1,28 @@
+{
+    "Sender":
+    [
+        {
+            "Number_Of_Batteries":2,
+            "Batteries_List":
+            [
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Celcius",
+                    "Temperature": 25,
+                    "SOC": 70,
+                    "Charge_rate": 0.7
+                },
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Celcius",
+                    "Temperature": 50,
+                    "SOC": 85,
+                    "Charge_rate": 0
+                }
+            ],
+            "Temperature_Check_Attemp": 50,
+            "SOC_Check_Attemp": 50,
+            "Charge_rate_Check_Attemp": 50
+        }
+    ]
+}
