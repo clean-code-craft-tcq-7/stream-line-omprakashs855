@@ -51,5 +51,6 @@ Process of Creating the script
     (Temperature, SOC, charge_rate)
     Battery Type and Temp_Type can be given as extra input, as Temp_Type can be (Celcius or Fahrenheit)
     In the test case json, we need to consider at least two battery types, so more than two can also be considered
+    Keeping Max and Min limit for According to Battery Type, currently considering only Temperature
 
 2. 

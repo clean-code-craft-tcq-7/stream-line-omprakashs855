@@ -7,22 +7,16 @@
             [
                 {
                     "Battery_Type": "Li-ion",
-                    "Temp_Type": "Celcius",
-                    "Temperature": 25,
-                    "SOC": 70,
-                    "Charge_rate": 0.7
+                    "Temp_Type": "Celcius"
                 },
                 {
                     "Battery_Type": "Li-ion",
-                    "Temp_Type": "Celcius",
-                    "Temperature": 50,
-                    "SOC": 85,
-                    "Charge_rate": 0
+                    "Temp_Type": "Celcius"
                 }
             ],
-            "Temperature_Check_Attemp": 50,
-            "SOC_Check_Attemp": 50,
-            "Charge_rate_Check_Attemp": 50
+            "Temperature_Check_Attemp": {"Stream Length": 50, "Required": true},
+            "SOC_Check_Attemp": {"Stream Length": 50, "Required": false},
+            "Charge_rate_Check_Attemp": {"Stream Length": 50, "Required": false}
         }
     ]
 }
