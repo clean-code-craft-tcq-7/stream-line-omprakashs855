@@ -1,6 +1,6 @@
 name: No Duplication beyond 3 lines
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   nodups:
