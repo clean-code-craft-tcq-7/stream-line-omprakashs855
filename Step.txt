@@ -56,12 +56,14 @@ Process of Creating the script
 2. In the next Step, we are going to print out report in this following
     If we select one of the test case, and in of the battery type is selected, it is going to print out stream lenght (50 now) output one by one in console
     eg : Sender Battery Type, Battery Index, Temperature Type, Temperature Detected
-         Sender One- B1 - Li-ion, Celcius, 50 | 
-         Sender One- B2 - Li-ion, Celcius, 37 | 
-         Sender Two- B3 - Li-ion, Celcius, 56 | 
+         Sender 1- B1 - Li-ion, Celcius, 50 | 
+         Sender 1- B2 - Li-ion, Celcius, 37 | 
+         Sender 2- B3 - Li-ion, Celcius, 56 | 
          ....
-         Sender Two- B48 - Li-ion, Celcius, 0 | 
-         Sender One- B49 - Li-ion, Celcius, 89 | 
-         Sender Two- B50 - Li-ion, Celcius, 100 |
+         Sender 2- B48 - Li-ion, Celcius, 0 | 
+         Sender 1- B49 - Li-ion, Celcius, 89 | 
+         Sender 2- B50 - Li-ion, Celcius, 100 |
     
-    So Using the TDD approach, as we already have the test case ready, we are going to write a test call function and make it fail
+    Step 1 : So Using the TDD approach, as we already have the test case ready, we are going to write a test call function and make it fail
+    Step 2 : Now we need to write the simplest code to make the test pass
+    

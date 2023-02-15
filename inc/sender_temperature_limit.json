@@ -1,11 +1,9 @@
 {
     "Temperature_Limit":
-    [
-        {
-            "Battery_Type": "Li-ion",
-            "Temp_Type": "Celcius",
-            "Min": 0,
-            "Max": 100
-        }
-    ]
+    {
+        "Battery_Type": "Li-ion",
+        "Temp_Type": "Celcius",
+        "Min": 0,
+        "Max": 100
+    }
 }

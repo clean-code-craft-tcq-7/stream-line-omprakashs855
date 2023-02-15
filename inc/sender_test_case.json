@@ -3,6 +3,7 @@
     [
         {
             "Number_Of_Batteries":2,
+            "Stream_Length": 50,
             "Batteries_List":
             [
                 {
@@ -14,9 +15,12 @@
                     "Temp_Type": "Celcius"
                 }
             ],
-            "Temperature_Check_Attemp": {"Stream Length": 50, "Required": true},
-            "SOC_Check_Attemp": {"Stream Length": 50, "Required": false},
-            "Charge_rate_Check_Attemp": {"Stream Length": 50, "Required": false}
+            "Check_Attemp":
+            [
+                {"Name": "Temperature", "Required": true},
+                {"Name": "SOC", "Required": false},
+                {"Name": "Charge_Rate", "Required": false}
+            ]
         }
     ]
 }
