@@ -42,6 +42,6 @@
                 {"Name": "SOC", "Required": false},
                 {"Name": "Charge_Rate", "Required": false}
             ]
-        },
+        }
     ]
 }
