@@ -21,6 +21,27 @@
                 {"Name": "SOC", "Required": false},
                 {"Name": "Charge_Rate", "Required": false}
             ]
-        }
+        },
+        {
+            "Number_Of_Batteries":2,
+            "Stream_Length": 30,
+            "Batteries_List":
+            [
+                {
+                    "Battery_Type": "Daniell cell",
+                    "Temp_Type": "Celcius"
+                },
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Fahrenheit"
+                }
+            ],
+            "Check_Attemp":
+            [
+                {"Name": "Temperature", "Required": true},
+                {"Name": "SOC", "Required": false},
+                {"Name": "Charge_Rate", "Required": false}
+            ]
+        },
     ]
 }
