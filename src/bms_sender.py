@@ -42,7 +42,6 @@ class BMS_Sender:
         min_temp = temp_limit_json_data["Temperature_Limit"][battery_type_idx]["Min"]
         max_temp = temp_limit_json_data["Temperature_Limit"][battery_type_idx]["Max"]
         rand_temp_out = self.create_random_value(min_temp, max_temp)
-        temp_out_data = "Sender {} - B{} - {}, {}, {} |".format(battery_idx+1, idx+1, bat["Battery_Type"], bat["Temp_Type"], rand_temp_out)
         return rand_temp_out
 
     def create_SOC_stream_output(self, idx, battery_idx, bat):
