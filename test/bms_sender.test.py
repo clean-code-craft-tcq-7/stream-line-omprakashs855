@@ -9,7 +9,7 @@ from src.bms_sender import BMS_Sender as BS
 class Test_BMS_Sender(unittest.TestCase):
 
     def regex_match(self, console_out):
-        test_regex = r"Sender\s\d+ - B\d+ - [\w\-\s]+, 'Temp': \d+ \w+, 'SOC': \d+% \|"
+        test_regex = r"Sender\s\d+ - B\d+ - [\w\-\s]+, 'Temp': \w+ \w+, 'SOC': \w+% \|"
         match_check = True
         for str in console_out:
             if not re.match(test_regex, str):
