@@ -11,7 +11,6 @@ class BMS_Sender:
                                     stdout=subprocess.PIPE).communicate()[0].rstrip().decode('utf-8')
         self.sender_tc_json_path = os.path.join(self.root_dir, "inc", "sender_test_case.json")
         self.sender_temp_limit_json_path = os.path.join(self.root_dir, "inc", "sender_temperature_limit.json")
-        self.test_regex = r"Sender\s\d+\s\-\sB\d+\s[\w\-\s\,]+\|"
         
     def get_json_data(self, path):
         data = {}
@@ -45,12 +44,6 @@ class BMS_Sender:
         
         return console_out_data
     
-    def regex_match(self, console_out):
-        match_check = True
-        for str in console_out:
-            if not re.match(self.test_regex, str):
-                match_check = False
-        return match_check
 
 
 
