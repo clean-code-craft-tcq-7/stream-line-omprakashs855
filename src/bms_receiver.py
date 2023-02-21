@@ -5,42 +5,16 @@ It does following things:
         2.1 maximum and minimum values in the incoming stream
         2.2 simple moving average of the last 5 values
 """
-BATTERY_PARAMS = ["Temp", "SOC"]
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir))
+from src.bms_receiver_parse_data import BmsReceiverConsoleDataParse
+from src.bms_receiver_analytics import BmsReceiverAnalytics
 
-class BmsReceiverConsoleDataParse(object):
-    def __init__(self, input_count):
-        self.input_count = input_count
-    def receive_data_from_console(self):
-        self.battery_params_console = []
-        for _ in range(self.input_count):
-            try:
-                self.battery_params_console.append(input())
-            except:
-                break
-        return self.battery_params_console
-    def __check_add_sensor_key(self, string_list, params_key):
-        sensor_key = string_list[0]+' '+string_list[1]
-        if sensor_key not in self.battery_params.keys():
-            self.battery_params[sensor_key] = {}
-        if params_key not in self.battery_params[sensor_key].keys():
-            self.battery_params[sensor_key][params_key] = []
-        return sensor_key
-    def __check_params_add_to_dict(self, each_string_list, param_key, value):
-        if "Sender" in each_string_list:
-            sensor_key = self.__check_add_sensor_key(each_string_list, param_key)
-            self.battery_params[sensor_key][param_key].append(value)
-    def __parse_for_params_and_update(self, each_string_list):
-        if "'Temp':" in each_string_list:
-            self.__check_params_add_to_dict(each_string_list, "temp", each_string_list[each_string_list.index("'Temp':")+1])
-        if "'SOC':" in each_string_list:
-            self.__check_params_add_to_dict(each_string_list, "soc", each_string_list[each_string_list.index("'SOC':")+1][:-1])
-        return
-    def __parse_console_data(self, console_data_list):
-        self.battery_params = {}
-        for each_string in console_data_list:
-            self.__parse_for_params_and_update(each_string.split(" "))
-        return self.battery_params
-    def receive_parse_console_input(self, update_receive_count=None):
-        if update_receive_count:
-            self.input_count = update_receive_count
-        return self.__parse_console_data(self.receive_data_from_console())
+STREAM_LENGTH = 50
+
+def data_parse_analytics():
+    bms_rx_data_parse_obj = BmsReceiverConsoleDataParse(STREAM_LENGTH)
+    parsed_data = bms_rx_data_parse_obj.receive_parse_console_input()
+    bms_rx_analytics_obj = BmsReceiverAnalytics(parsed_data)
+    return bms_rx_analytics_obj.bms_receiver_analytics()

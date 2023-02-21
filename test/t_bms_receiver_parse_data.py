@@ -3,7 +3,7 @@ import os
 import unittest
 from unittest.mock import patch
 sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir))
-from src.bms_receiver import BmsReceiverConsoleDataParse
+from src.bms_receiver_parse_data import BmsReceiverConsoleDataParse
 
 SENDER_STREAM_PREFIX = "-------------------\nSender Request : 1\n-------------------\n"
 SENDER_STREAM_DATA_FORMAT = "Sender 2 - B1 - Li-ion, 'Temp': {} Celcius, 'SOC': {}% |\n"
@@ -67,41 +67,41 @@ class TestBmsReceiver(unittest.TestCase):
     def test_receive_parse_console_input_0(self):
         global SIMULATED_VALUES_COUNT
         SIMULATED_VALUES_COUNT = 2
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data):
             bms_receiver_parse_obj_0 = BmsReceiverConsoleDataParse(2)
             self.assertEqual(bms_receiver_parse_obj_0.receive_parse_console_input(), \
-                {'Sender 2': {'temp': ['10', '15'], 'soc': ['50', '20']}})
+                {'Sender 2': {'temp': [10, 15], 'soc': [50, 20]}})
         return
     def test_receive_parse_console_input_1(self):
         global SIMULATED_VALUES_COUNT
         SIMULATED_VALUES_COUNT = 0
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data):
             bms_receiver_parse_obj_1 = BmsReceiverConsoleDataParse(5)
             self.assertEqual(bms_receiver_parse_obj_1.receive_parse_console_input(), {})
         return  
     def test_receive_parse_console_input_2(self):
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_2):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_2):
             bms_receiver_parse_obj_2 = BmsReceiverConsoleDataParse(15)
             self.assertEqual(bms_receiver_parse_obj_2.receive_parse_console_input(), {})
         return      
     def test_receive_parse_console_input_3(self):
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_3):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_3):
             bms_receiver_parse_obj_3 = BmsReceiverConsoleDataParse(15)
             self.assertEqual(bms_receiver_parse_obj_3.receive_parse_console_input(), {})
         return     
     def test_receive_parse_console_input_4(self):
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_4):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_4):
             bms_receiver_parse_obj_4 = BmsReceiverConsoleDataParse(1)
             self.assertEqual(bms_receiver_parse_obj_4.receive_parse_console_input(), {})
         return      
     def test_receive_parse_console_input_5(self):
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_5):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_5):
             bms_receiver_parse_obj_5 = BmsReceiverConsoleDataParse(50)
             self.assertEqual(bms_receiver_parse_obj_5.receive_parse_console_input(), {})
         return    
     def test_receive_parse_console_input_6(self):
-        with patch('src.bms_receiver.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_6):
+        with patch('src.bms_receiver_parse_data.BmsReceiverConsoleDataParse.receive_data_from_console', receiver_test_data_6):
             bms_receiver_parse_obj_6 = BmsReceiverConsoleDataParse(37)
             self.assertEqual(bms_receiver_parse_obj_6.receive_parse_console_input(), \
-                {'Sender 2': {'temp': ['15']}, 'Sender 1': {'soc': ['125']}})
+                {'Sender 2': {'temp': [15]}, 'Sender 1': {'soc': [125]}})
         return     
