@@ -37,7 +37,6 @@ class TestBmsReceiverAnalytics(unittest.TestCase):
     def test_bms_receiver_analytics_3(self):
         input_3 = {}
         test_obj_3 = BmsReceiverAnalytics(input_3)
-        print(test_obj_3.bms_receiver_analytics())
         self.assertEqual(test_obj_3.bms_receiver_analytics(),json.dumps({}))
         return        
     def test_bms_receiver_analytics_4(self):

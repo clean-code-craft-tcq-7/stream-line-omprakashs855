@@ -16,5 +16,6 @@ STREAM_LENGTH = 50
 def data_parse_analytics():
     bms_rx_data_parse_obj = BmsReceiverConsoleDataParse(STREAM_LENGTH)
     parsed_data = bms_rx_data_parse_obj.receive_parse_console_input()
+    # print("parsed_data: ", parsed_data)
     bms_rx_analytics_obj = BmsReceiverAnalytics(parsed_data)
     return bms_rx_analytics_obj.bms_receiver_analytics()
