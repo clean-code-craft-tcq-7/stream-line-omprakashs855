@@ -26,13 +26,14 @@ class BmsReceiverConsoleDataParse(object):
             self.battery_params[sensor_key][params_key] = []
         return sensor_key
     def __check_params_add_to_dict(self, each_string_list, param_key, value):
-        sensor_key = self.__check_add_sensor_key(each_string_list, param_key)
-        self.battery_params[sensor_key][param_key].append(value)
+        if "Sender" in each_string_list:
+            sensor_key = self.__check_add_sensor_key(each_string_list, param_key)
+            self.battery_params[sensor_key][param_key].append(value)
     def __parse_for_params_and_update(self, each_string_list):
         if "'Temp':" in each_string_list:
-            self.__check_params_add_to_dict(each_string_list, "temp", each_string_list[7])
+            self.__check_params_add_to_dict(each_string_list, "temp", each_string_list[each_string_list.index("'Temp':")+1])
         if "'SOC':" in each_string_list:
-            self.__check_params_add_to_dict(each_string_list, "soc", each_string_list[10][:-1])
+            self.__check_params_add_to_dict(each_string_list, "soc", each_string_list[each_string_list.index("'SOC':")+1][:-1])
         return
     def __parse_console_data(self, console_data_list):
         self.battery_params = {}
