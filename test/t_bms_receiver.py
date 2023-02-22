@@ -4,7 +4,7 @@ import json
 import unittest
 from unittest.mock import patch
 sys.path.append(os.path.join(os.path.dirname(__file__), os.pardir))
-from src.bms_receiver import data_parse_analytics
+from src.bms_receiver import data_parse_analytics, send_to_console
 from t_bms_receiver_parse_data import receiver_test_data_2,\
     receiver_test_data_5
 
@@ -13,6 +13,7 @@ SENDER_STREAM_PREFIX = "-------------------\nSender Request : 1\n---------------
 SENDER_STREAM_DATA_FORMAT = "Sender 2 - B1 - Li-ion, 'Temp': {} Celcius, 'SOC': {}% |\n"
 SIMULATED_VALUES = [[10,50],[15,20],[25,50],[0,0],[75,9],\
                     [99,999]]
+
 
 def receiver_test_data_0(self):
     test_data = []
@@ -24,6 +25,11 @@ def receiver_test_data_0(self):
     return test_data
 
 class TestBmsReceiverClass(unittest.TestCase):
+    def test_send_to_console(self):
+        """ this test case is to test send_to_console method """
+        with patch('builtins.print') as mock_print:
+            send_to_console("Hello")
+            mock_print.assert_called_once_with('Hello')      
     def test_data_parse_analytics_0(self):
         global SIMULATED_VALUES_COUNT
         SIMULATED_VALUES_COUNT = 5
