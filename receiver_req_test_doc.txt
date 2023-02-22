@@ -51,3 +51,5 @@ Receiver output:
 
 Do data driven test of all the functions defined above.
 
+Integration:
+    Sender and Receiver integration is not done as sender does not have one module which simulates data.
