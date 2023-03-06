@@ -1,0 +1,17 @@
+{
+    "Temperature_Limit":
+    [
+        {
+            "Battery_Type": "Li-ion",
+            "Temp_Type": "Celcius",
+            "Min": 0,
+            "Max": 100
+        },
+        {
+            "Battery_Type": "Daniell cell",
+            "Temp_Type": "Celcius",
+            "Min": 25,
+            "Max": 150
+        }
+    ]
+}

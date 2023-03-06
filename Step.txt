@@ -1,0 +1,69 @@
+KPI
+---
+
+The Sender simulates and processes data from sensors.
+It sends data line-by-line to the console, in a format that it defines.
+The Receiver inputs this data and computes statistics.
+
+The Sender sends data to the Receiver using console redirection and pipes.
+They need to run on the command-line as follows:
+
+    sender-executable | receiver-executable
+
+This would make the console-writes of the sender become the console-reads of the receiver. 
+It gives us the flexibility of decoupling the sender and receiver - they can even be written in different languages.
+
+Phases
+------
+
+Develop the Sender in the first phase, complete with test cases. 
+The syntax and meaning of the data must be evident by reading your test cases. 
+
+The Interface
+-------------
+The Sender is testable without the Receiver - so we can develop for another sensor, test and be confident about integration.
+
+Decomposition of responsibility
+-------------------------------
+
+The naming of source files within the Sender and within the Receiver give their internal decomposition.
+
+Minimum Functionality
+---------------------
+
+    The Sender
+    ----------
+
+    -> simulates and sends at least two Battery / Charging parameters
+    -> sends fifty readings in a stream
+    -> can either generate values for the parameters, or read from a file
+    -> uses console output to communicate the parameters.
+
+Quality Parameters
+------------------
+
+Setup the quality parameters of your project (duplication, complexity, coverage, warnings) using GitHub workflow yml files.
+
+Process of Creating the script
+------------------------------
+
+1. At first I will consider three charging paramters as a input (although it can be any values)
+    (Temperature, SOC, charge_rate)
+    Battery Type and Temp_Type can be given as extra input, as Temp_Type can be (Celcius or Fahrenheit)
+    In the test case json, we need to consider at least two battery types, so more than two can also be considered
+    Keeping Max and Min limit for According to Battery Type, currently considering only Temperature
+
+2. In the next Step, we are going to print out report in this following
+    If we select one of the test case, and in of the battery type is selected, it is going to print out stream lenght (50 now) output one by one in console
+    eg : Sender Battery Type, Battery Index, Temperature Type, Temperature Detected
+         Sender 1- B1 - Li-ion, Celcius, 50 | 
+         Sender 1- B2 - Li-ion, Celcius, 37 | 
+         Sender 2- B3 - Li-ion, Celcius, 56 | 
+         ....
+         Sender 2- B48 - Li-ion, Celcius, 0 | 
+         Sender 1- B49 - Li-ion, Celcius, 89 | 
+         Sender 2- B50 - Li-ion, Celcius, 100 |
+    
+    Step 1 : So Using the TDD approach, as we already have the test case ready, we are going to write a test call function and make it fail
+    Step 2 : Now we need to write the simplest code to make the test pass
+    

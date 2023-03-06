@@ -1,0 +1,15 @@
+{
+    "SOC_limit":
+    [
+        {
+            "Battery_Type": "Li-ion",
+            "Min": 0,
+            "Max": 100
+        },
+        {
+            "Battery_Type": "Daniell cell",
+            "Min": 10,
+            "Max": 90
+        }
+    ]
+}

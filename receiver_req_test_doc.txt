@@ -1,0 +1,57 @@
+Requirement:
+
+    1. reads the parameters stream of 50 from the console input.
+        Stream consists of temperature and soc parameter values.
+    2. after reading every parameter, it prints the following:
+        2.1 maximum and minimum values in the incoming stream
+        2.2 simple moving average of the last 5 values
+
+Input:
+    Console Input Stream from Sender output for stream count 5:
+
+    -------------------
+    Sender Request : 1
+    -------------------
+    Sender 2 - B1 - Li-ion, 'Temp': 83 Celcius, 'SOC': 6% |
+    Sender 1 - B2 - Li-ion, 'Temp': 74 Celcius, 'SOC': 51% |
+    Sender 2 - B3 - Li-ion, 'Temp': 16 Celcius, 'SOC': 99% |
+    Sender 1 - B4 - Li-ion, 'Temp': 49 Celcius, 'SOC': 33% |
+    Sender 1 - B5 - Li-ion, 'Temp': 89 Celcius, 'SOC': 90% |    
+
+Requirement Breakdown:
+
+    Requirement can be broken down to following sub Requirements.
+
+    1. Read and Parse Console data.
+        1.1 read 50 stream from console.
+        1.2 parse and get 50 temperature values.
+        1.3 parse and get 50 soc values.
+    2. Do analysis.
+        2.1 Find minimum value of parameter.
+        2.2 Find maximum value of parameter.
+        2.3 Find simple moving average of last 5 paramert values.
+        2.4 Send data to console.
+
+Receiver output:
+    Receiver sends analysis output in the format ofJSON string to 
+    console. Format is illustrated below,
+
+    {
+        "temp" : {
+            "min" : <int>,
+            "max" : <int>,
+            "sma" : <float>,
+        },
+        "soc" : {
+            "min" : <int>,
+            "max" : <int>,
+            "sma" : <float>,
+        }
+    }
+
+Do data driven test of all the functions defined above.
+
+Integration:
+    Sender and Receiver integration is not done as sender does not have one module which simulates data.
+
+    Added integration workflow file using test code to showcase how to pipe using sender function.

@@ -1,0 +1,72 @@
+{
+    "Sender":
+    [
+        {
+            "Number_Of_Batteries":2,
+            "Stream_Length": 50,
+            "Batteries_List":
+            [
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Celcius"
+                },
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Celcius"
+                }
+            ],
+            "Check_Attemp":
+            [
+                {"Name": "Temperature", "Required": true},
+                {"Name": "SOC", "Required": true},
+                {"Name": "Charge_Rate", "Required": false}
+            ]
+        },
+        {
+            "Number_Of_Batteries":2,
+            "Stream_Length": 30,
+            "Batteries_List":
+            [
+                {
+                    "Battery_Type": "Daniell cell",
+                    "Temp_Type": "Celcius"
+                },
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Fahrenheit"
+                }
+            ],
+            "Check_Attemp":
+            [
+                {"Name": "Temperature", "Required": true},
+                {"Name": "SOC", "Required": true},
+                {"Name": "Charge_Rate", "Required": false}
+            ]
+        },
+        {
+            "Number_Of_Batteries":3,
+            "Stream_Length": 10,
+            "Batteries_List":
+            [
+                {
+                    "Battery_Type": "Xavier Cell",
+                    "Temp_Type": "Celcius"
+                },
+                {
+                    "Battery_Type": "Li-ion",
+                    "Temp_Type": "Fahrenheit"
+                },
+                {
+                    "Battery_Type": "Daniell cell",
+                    "Temp_Type": "Fahrenheit"
+                }
+            ],
+            "Check_Attemp":
+            [
+                {"Name": "Temperature", "Required": true},
+                {"Name": "SOC", "Required": true},
+                {"Name": "Charge_Rate", "Required": false}
+            ]
+        }
+    ]
+}
