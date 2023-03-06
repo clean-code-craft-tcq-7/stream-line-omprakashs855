@@ -86,6 +86,12 @@ class BMS_Sender:
         
         return console_out_data
     
+if __name__ == "__main__":
+    sender_obj = BMS_Sender()
+    json_data = sender_obj.get_json_data(sender_obj.sender_tc_json_path)
+    for idx, tc in enumerate(json_data["Sender"]):
+        console_out = sender_obj.create_stream_output(tc)
+
 
 
 
