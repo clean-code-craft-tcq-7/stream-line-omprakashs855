@@ -16,4 +16,4 @@ jobs:
       with:
         python-version: 3.9
     - name: Run
-      run: python test/bms_sender.test.py | python src/bms_receiver.py
+      run: python src/bms_sender.py | python src/bms_receiver.py
